@@ -1,0 +1,30 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "jsRules": {},
+  "rules": {
+    "max-line-length": {
+      "options": [
+        100
+      ]
+    },
+    "new-parens": true,
+    "no-any": true,
+    "no-arg": true,
+    "no-bitwise": true,
+    "no-conditional-assignment": true,
+    "no-var-requires": true,
+    "no-default-export": true,
+    "no-empty": true,
+    "no-construct": true,
+    "no-angle-bracket-type-assertion": true,
+    "no-boolean-literal-compare": true,
+    "no-floating-promises": true,
+    "no-var-keyword": true,
+    "no-unused-variable": true,
+    "no-consecutive-blank-lines": true
+  },
+  "rulesDirectory": []
+}
