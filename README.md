@@ -53,13 +53,6 @@ SECRET=ASDF4fdsfVe423rFSEfgYH56hr
 ```
 
 ## Endpoints
-All secure endpoints require a valid token present in the ```Authorization``` header 
-with the ```Bearer``` authentication scheme. Example:
-
-```
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
-```
-
 ### GET /api/users/<:id>
 Returns the data (id, username and status) of the user with the given id.
 
@@ -117,11 +110,10 @@ Example request body:
 ```
 
 ### GET /api/tokens
-Returns the data of the user authenticated with a token given in the request body. 
-Example request body:
+Returns the data of the user authenticated with a token given in the headers. 
+Requires a valid token present in the ```Authorization``` header 
+with the ```Bearer``` authentication scheme. Example:
 
-```json
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-}
+```
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
 ```
