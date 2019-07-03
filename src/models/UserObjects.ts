@@ -32,7 +32,7 @@ export class UserObjects {
 
     public async authenticate(username: string, password: string): Promise<User | undefined> {
         let user = await this.getUser({
-            text: "SELECT * FROM auth_users WHERE username = $1",
+            text: "SELECT * FROM auth_users WHERE username = $1 AND active = TRUE",
             values: [username],
         });
         if (user !== undefined && !user.checkPassword(password)) {
