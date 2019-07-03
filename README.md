@@ -13,14 +13,14 @@ Password is not stored in the database. Status is one of two values: active or i
 Data is stored in PostgreSQL database in two tables:
 
 ```
-CREATE TABLE users (
+CREATE TABLE auth_users (
     id SERIAL PRIMARY KEY,
     username VARCHAR (64) UNIQUE NOT NULL,
     pass_hash VARCHAR NOT NULL,
     active BOOLEAN NOT NULL
 );
 
-CREATE TABLE admins (
+CREATE TABLE auth_admins (
     id SERIAL PRIMARY KEY,
     pass_hash VARCHAR NOT NULL
 );
