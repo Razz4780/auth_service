@@ -1,27 +1,27 @@
 # auth_service
 This service provides simple JWT authentication functionality through REST API.
-Users can create accounts, acquire tokens and retrieve their uuids and usernames.
+Users can create accounts, acquire tokens and retrieve their ids and usernames.
 Service also provides user administration functionality for admins through REST API
 
 ## Stored data
 This service operates on two types of records: users and admins.
 
-1. Users are described with four properties: uuid, username, password and status.
+1. Users are described with four properties: id, username, password and status.
 Password is not stored in the database. Status is one of two values: active or inactive.
-2. Admins are described with two properties: uuid and username.
+2. Admins are described with two properties: id and username.
 
 Data is stored in PostgreSQL database in two tables:
 
 ```
 CREATE TABLE users (
-    uuid UUID PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     username VARCHAR (64) UNIQUE NOT NULL,
     pass_hash VARCHAR NOT NULL,
     active BOOLEAN NOT NULL
 );
 
 CREATE TABLE admins (
-    uuid UUID PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     pass_hash VARCHAR NOT NULL
 );
 ```
@@ -60,8 +60,8 @@ with the ```Bearer``` authentication scheme. Example:
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
 ```
 
-### GET /api/users/<:uuid>
-Returns the data (uuid, username and status) of the user with the given uuid.
+### GET /api/users/<:id>
+Returns the data (id, username and status) of the user with the given id.
 
 ### POST /api/users
 Creates new user with username and password given in the request body. Example request body:
@@ -75,19 +75,19 @@ Creates new user with username and password given in the request body. Example r
 
 Returns the data of the newly created user.
 
-### DELETE /api/users/<:uuid>
-Deletes the user with the given uuid. 
+### DELETE /api/users/<:id>
+Deletes the user with the given id. 
 Requires admin credentials to be given in the request body. Example request body:
 
 ```json
 {
-  "uuid": "40a059b6-64d9-4315-b6bc-1f066fd521e3",
+  "id": 2,
   "password": "password"
 }
 ```
 
-### PATCH /api/users/<:uuid>
-Updates the data of the user with the given uuid. 
+### PATCH /api/users/<:id>
+Updates the data of the user with the given id. 
 Only username, password and status properties can be updated.
 New values are given in the request body. Examples request body:
 
