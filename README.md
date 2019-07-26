@@ -89,6 +89,14 @@ Example request body:
 }
 ```
 
+Example response body:
+
+```json
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+}
+```
+
 ### GET /api/tokens
 Returns the data of the user authenticated with a token given in the headers. 
 Requires a valid token present in the ```Authorization``` header 
@@ -96,4 +104,13 @@ with the ```Bearer``` authentication scheme. Example:
 
 ```
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+```
+
+Example response body:
+
+```json
+{
+  "id": 1,
+  "username": "user1"
+}
 ```
